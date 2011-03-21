@@ -33,7 +33,7 @@ var ShareCounterApp = function(){
 	
 	function sanitizeUrl(url)
 	{
-		return url.replace("http://", "");
+		return escape(url.replace("http://", ""));
 	}
 	
 	
