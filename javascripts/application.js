@@ -28,7 +28,8 @@ var ShareCounterApp = function(){
 			form,
 			control,
 			result,
-			loader;
+			loader,
+			permalink;
 	
 	
 	function sanitizeUrl(url)
@@ -139,7 +140,8 @@ var ShareCounterApp = function(){
 	
 	return {
 		
-		init : function(){
+		init : function()
+		{
 			control   = $("#query");
 			form      = $("#query_form");
 			result    = $("#results span");
