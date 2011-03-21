@@ -80,6 +80,7 @@ var ShareCounterApp = function(){
 			if(data["comments"])
 				shares += " (and " + data["comments"] + " comments)";
 			
+			updateHistory("?u=" + sanitizeUrl(data["id"]));
 			logSuccess(shares, createPermalink(data));
 		}
 	}
@@ -107,9 +108,16 @@ var ShareCounterApp = function(){
 	function logSuccess(text, link)
 	{
 		log(text, function(){
-			permalink.html(link);
 			result.addClass('success')
+			permalink.html(link);
 		});
+	}
+	
+	
+	function updateHistory(url)
+	{
+		if(history && history.pushState)
+			history.pushState(null, document.title, url);
 	}
 	
 	
