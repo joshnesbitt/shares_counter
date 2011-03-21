@@ -43,9 +43,15 @@ var ShareCounterApp = function(){
 	}
 	
 	
+	function constructQueryString(data)
+	{
+		return "?u=" + sanitizeUrl(data["id"]);
+	}
+	
+	
 	function createPermalink(data)
 	{
-		var url = [window.location.protocol, "//", window.location.hostname, "?u=", sanitizeUrl(data["id"])].join(""),
+		var url = [window.location.protocol, "//", window.location.hostname, constructQueryString(data)].join(""),
 				link = $('<a>Permalink</a>');
 		
 		link.attr("href", url);
@@ -80,7 +86,7 @@ var ShareCounterApp = function(){
 			if(data["comments"])
 				shares += " (and " + data["comments"] + " comments)";
 			
-			updateHistory("?u=" + sanitizeUrl(data["id"]));
+			updateHistory(constructQueryString(data));
 			logSuccess(shares, createPermalink(data));
 		}
 	}
