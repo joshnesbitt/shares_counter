@@ -1,5 +1,19 @@
 var Utils = {
 	
+	formatNumeric : function(string)
+	{
+		s = (string + '').split('.');
+		a = s[0];
+		b = s.length > 1 ? '.' + s[1] : '';
+		
+		var r = /(\d+)(\d{3})/;
+		
+		while (r.test(a))
+			a = a.replace(r, '$1' + ',' + '$2');
+		
+		return a + b;
+	},
+	
 	getParam : function(key)
 	{
 		var regex  = new RegExp("[\\?&]" + key.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]") + "=([^&]*)", "i"),
@@ -61,7 +75,7 @@ var ShareCounterApp = function(){
 			logFailure("No results");
 		}
 		else {
-			var shares = data["shares"];
+			var shares = Utils.formatNumeric(data["shares"]);
 			
 			if(data["comments"])
 				shares += " (and " + data["comments"] + " comments)";
