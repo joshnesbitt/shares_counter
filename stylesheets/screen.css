@@ -1,7 +1,7 @@
 html, body { background: #fff; font: 1.4em Helvetica, Arial, sans-serif; letter-spacing: -2px; }
 body { width: 1000px; margin: 40px auto; text-align: center; }
 form input#query { border: none; border-bottom: 2px #333 dotted; width: 300px; text-align: center; }
-form input#submit { background: #FFF9D7; border: 1px #E2C822 solid; padding: 0 10px 4px 10px; color: #E2C822; line-height: .9em; cursor: pointer; }
+form input#submit { background: #fff; border: none; padding: 0 10px 4px 10px; color: #E2C822; cursor: pointer; }
 div#loader { margin: 40px; }
 div#results { margin: 40px 0 10px 0; }
 div#results span { padding: 10px; }
